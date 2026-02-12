@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container content-page">
+    <h1 class="page-title">Project Procedure</h1>
+    <p class="intro-text">This section explains how the project was implemented step by step.</p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+                <h2>Data Collection</h2>
+                <ul>
+                    <li>Dataset downloaded from Kaggle.</li>
+                    <li>400 samples with lifestyle and health-related attributes.</li>
+                    <li>Target variable: Sleep Disorder.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+                <h2>Data Cleaning</h2>
+                <div class="sub-step">
+                    <h3>✔ Handling Categorical Data</h3>
+                    <p>Applied Label Encoding to Gender, Occupation, BMI Category, Sleep Disorder.</p>
+                    <p>Target Mapped: None → 0, Sleep Apnea → 1, Insomnia → 2</p>
+                </div>
+                <div class="sub-step">
+                    <h3>✔ Splitting Blood Pressure</h3>
+                    <p>Split "120/80" into Systolic and Diastolic columns.</p>
+                </div>
+                <div class="sub-step">
+                    <h3>✔ Feature Scaling</h3>
+                    <p>Applied StandardScaler (Mean=0, SD=1) to improve ANN performance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+                <h2>Train-Test Split</h2>
+                <p>70% Training Data | 30% Testing Data</p>
+                <p>Ensured model evaluation on unseen data.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+                <h2>Model Building</h2>
+                <div class="model-specs">
+                    <h3>🔹 Artificial Neural Network (ANN)</h3>
+                    <p>Input Layer → Hidden Dense Layers (ReLU) → Dropout Layers → Output Layer (Softmax)</p>
+                </div>
+                <div class="model-specs">
+                    <h3>🔹 Random Forest</h3>
+                    <p>Multiple decision trees with majority voting.</p>
+                </div>
+                <div class="model-specs">
+                    <h3>🔹 XGBoost</h3>
+                    <p>Sequential tree boosting with regularization.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-number">5</div>
+            <div class="timeline-content">
+                <h2>Model Evaluation</h2>
+                <ul>
+                    <li><strong>Accuracy Score:</strong> Measures overall correctness.</li>
+                    <li><strong>Classification Report:</strong> Precision, Recall, F1-Score.</li>
+                    <li><strong>Confusion Matrix:</strong> Analyzed misclassifications.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-number">6</div>
+            <div class="timeline-content">
+                <h2>Cross Validation</h2>
+                <p>Applied 5-Fold Cross Validation to ensure consistent performance across splits.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-outcome">
+        <h2>Final Outcome</h2>
+        <ul>
+            <li>ANN achieved highest accuracy (94.17%)</li>
+            <li>Model can assist in early detection</li>
+            <li>Scalable to real-time healthcare systems</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

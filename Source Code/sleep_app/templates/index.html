@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="home-container">
+    <section class="hero-section">
+        <h1 class="main-title">Welcome to Sleep Disorder Detection System</h1>
+        <p class="subtitle">AI-Powered Sleep Disorder Classification Using Deep Learning</p>
+        <p class="description">
+            Sleep disorders such as Insomnia and Sleep Apnea significantly impact a person’s physical and mental health.
+            Early and accurate detection plays a crucial role in improving quality of life.
+        </p>
+    </section>
+
+    <section class="features-section">
+        <h2>🔍 Key Features of the Project</h2>
+        <div class="features-grid">
+            <div class="feature-item">Automated sleep disorder prediction</div>
+            <div class="feature-item">Data preprocessing and feature engineering</div>
+            <div class="feature-item">Deep learning model optimization</div>
+            <div class="feature-item">5-Fold Cross Validation for reliable evaluation</div>
+            <div class="feature-item">Comparative performance analysis</div>
+        </div>
+    </section>
+
+    <section class="target-classes-section">
+        <h2>🎯 Target Output Classes</h2>
+        <div class="classes-grid">
+            <div class="class-card healthy">None (Healthy Sleep)</div>
+            <div class="class-card apnea">Sleep Apnea</div>
+            <div class="class-card insomnia">Insomnia</div>
+        </div>
+    </section>
+
+    <section class="prediction-section" id="prediction-form">
+        <h2 class="section-title">Predict Your Sleep Health</h2>
+        <div class="container">
+            <div class="form-container">
+                <form id="predictForm">
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Age:</label>
+                            <input type="number" name="Age" required min="1" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label>Sleep Duration:</label>
+                            <input type="number" name="Sleep Duration" required min="0" max="24" step="0.1">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Sleep Quality:</label>
+                            <input type="number" name="Quality of Sleep" required min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Activity Level:</label>
+                            <input type="number" name="Physical Activity Level" required min="0" max="1440">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Stress Level:</label>
+                            <input type="number" name="Stress Level" required min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Heart Rate:</label>
+                            <input type="number" name="Heart Rate" required min="40" max="200">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Daily Steps:</label>
+                            <input type="number" name="Daily Steps" required min="0" max="100000">
+                        </div>
+                        <div class="form-group">
+                            <label>Systolic BP:</label>
+                            <input type="number" name="Systolic" required min="70" max="200">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Diastolic BP:</label>
+                            <input type="number" name="Diastolic" required min="40" max="130">
+                        </div>
+                    </div>
+                    <button type="submit" class="predict-btn">Predict Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Result -->
+    <div class="overlay"></div>
+    <div id="result" class="result-popup">
+        <button class="close-button">&times;</button>
+        <div class="result-content">
+            <h2>Prediction Result</h2>
+            <div class="prediction-card">
+                <div class="prediction-label">Enter your details to get prediction</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
